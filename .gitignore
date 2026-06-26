@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Virtual env
+.venv/
+
+# Deepwork session state (local only)
+.slim/
+
+# Data (too large for git — regenerate via scripts)
+data/raw/
+data/processed/
+
+# Cache
+cache/
+
+# Environment / secrets
+.env
+*.json credentials
+earthengine-secret*.json
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log
