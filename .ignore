@@ -1,0 +1,4 @@
+# .ignore  — keep deepwork session state readable to OpenCode
+!.slim/
+!.slim/deepwork/
+!.slim/deepwork/**
