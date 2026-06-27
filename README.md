@@ -168,7 +168,7 @@ Satellite LST (GEE)     NASA Aging Data      Road Network (OSMnx)
 
 ```bash
 # Clone the repository
-git clone https://github.com/SENIN_KULLANICI_ADIN/coolroute.git
+git clone https://github.com/Exoristos/coolroute.git
 cd coolroute
 
 # Create virtual environment and install dependencies
