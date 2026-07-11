@@ -4,7 +4,8 @@ version = "0.2.0"
 description = "CoolRoute: Urban Heat Island-aware Pareto routing for e-micromobility — satellite LST fusion + Markov chain drive cycle + battery aging models."
 readme = "README.md"
 requires-python = ">=3.11,<3.13"
-authors = [{ name = "enise" }]
+authors = [{ name = "Exoristos" }]
+license = "MIT"
 
 dependencies = [
     # --- geo / raster ---
