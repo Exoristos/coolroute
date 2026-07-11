@@ -1,7 +1,7 @@
 # Proje Durum Raporu — Urban Heat Island × E-Micromobility Battery Optimization
 
 **Tarih:** 27 Haziran 2026
-**Repo:** `C:\Users\enise\Documents\Projelerim\isi_harita`
+**Repository:** `Exoristos/coolroute`
 **Durum:** P10 tamamlandı. Tüm core fazlar + stop-and-go simulation + alan genişletme yapıldı.
 
 ---

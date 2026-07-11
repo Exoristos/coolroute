@@ -20,8 +20,11 @@ cache/
 
 # Environment / secrets
 .env
-*.json credentials
+*credentials*.json
+*service-account*.json
 earthengine-secret*.json
+*.pem
+*.key
 
 # IDE
 .idea/
@@ -34,3 +37,10 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Test / tooling state
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
