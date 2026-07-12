@@ -337,6 +337,96 @@ wheels = [
 ]
 
 [[package]]
+name = "coolroute"
+version = "0.2.0"
+source = { editable = "." }
+dependencies = [
+    { name = "earthengine-api" },
+    { name = "esda", version = "2.9.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
+    { name = "esda", version = "2.10.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
+    { name = "fastapi" },
+    { name = "folium" },
+    { name = "geopandas" },
+    { name = "httpx" },
+    { name = "libpysal" },
+    { name = "mapclassify" },
+    { name = "matplotlib" },
+    { name = "networkx" },
+    { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
+    { name = "numpy", version = "2.5.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
+    { name = "osmnx" },
+    { name = "pandas" },
+    { name = "plotly" },
+    { name = "pydantic" },
+    { name = "pydantic-settings" },
+    { name = "pymoo" },
+    { name = "pyproj" },
+    { name = "python-dotenv" },
+    { name = "rasterio", version = "1.4.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
+    { name = "rasterio", version = "1.5.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
+    { name = "rioxarray", version = "0.19.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
+    { name = "rioxarray", version = "0.22.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
+    { name = "scikit-learn" },
+    { name = "scipy", version = "1.17.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
+    { name = "scipy", version = "1.18.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
+    { name = "shapely" },
+    { name = "statsmodels" },
+    { name = "streamlit" },
+    { name = "streamlit-folium" },
+    { name = "tqdm" },
+    { name = "uvicorn", extra = ["standard"] },
+    { name = "xarray" },
+    { name = "zarr", version = "3.1.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
+    { name = "zarr", version = "3.2.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
+]
+
+[package.optional-dependencies]
+dev = [
+    { name = "pytest" },
+    { name = "pytest-cov" },
+    { name = "ruff" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "earthengine-api", specifier = ">=1.0" },
+    { name = "esda", specifier = ">=2.4" },
+    { name = "fastapi", specifier = ">=0.110" },
+    { name = "folium", specifier = ">=0.16" },
+    { name = "geopandas", specifier = ">=0.14" },
+    { name = "httpx", specifier = ">=0.27" },
+    { name = "libpysal", specifier = ">=4.8" },
+    { name = "mapclassify", specifier = ">=2.6" },
+    { name = "matplotlib", specifier = ">=3.8" },
+    { name = "networkx", specifier = ">=3.2" },
+    { name = "numpy", specifier = ">=1.26,<3" },
+    { name = "osmnx", specifier = ">=1.9" },
+    { name = "pandas", specifier = ">=2.1" },
+    { name = "plotly", specifier = ">=6.8.0" },
+    { name = "pydantic", specifier = ">=2.6" },
+    { name = "pydantic-settings", specifier = ">=2.2" },
+    { name = "pymoo", specifier = ">=0.6" },
+    { name = "pyproj", specifier = ">=3.6" },
+    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0" },
+    { name = "pytest-cov", marker = "extra == 'dev'", specifier = ">=4.1" },
+    { name = "python-dotenv", specifier = ">=1.0" },
+    { name = "rasterio", specifier = ">=1.3" },
+    { name = "rioxarray", specifier = ">=0.15" },
+    { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.4" },
+    { name = "scikit-learn", specifier = ">=1.4" },
+    { name = "scipy", specifier = ">=1.11" },
+    { name = "shapely", specifier = ">=2.0" },
+    { name = "statsmodels", specifier = ">=0.14.6" },
+    { name = "streamlit", specifier = ">=1.33" },
+    { name = "streamlit-folium", specifier = ">=0.18" },
+    { name = "tqdm", specifier = ">=4.66" },
+    { name = "uvicorn", extras = ["standard"], specifier = ">=0.29" },
+    { name = "xarray", specifier = ">=2024.1" },
+    { name = "zarr", specifier = ">=2.18" },
+]
+provides-extras = ["dev"]
+
+[[package]]
 name = "coverage"
 version = "7.14.3"
 source = { registry = "https://pypi.org/simple" }
@@ -2244,96 +2334,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/ba/19/1b9b0e29f30c6d35c
 wheels = [
     { url = "https://files.pythonhosted.org/packages/ce/e4/dccd7f47c4b64213ac01ef921a1337ee6e30e8c6466046018326977efd95/tzdata-2026.2-py2.py3-none-any.whl", hash = "sha256:bbe9af844f658da81a5f95019480da3a89415801f6cc966806612cc7169bffe7", size = 349321, upload-time = "2026-04-24T15:22:05.876Z" },
 ]
-
-[[package]]
-name = "uhi-battery"
-version = "0.1.0"
-source = { editable = "." }
-dependencies = [
-    { name = "earthengine-api" },
-    { name = "esda", version = "2.9.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
-    { name = "esda", version = "2.10.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
-    { name = "fastapi" },
-    { name = "folium" },
-    { name = "geopandas" },
-    { name = "httpx" },
-    { name = "libpysal" },
-    { name = "mapclassify" },
-    { name = "matplotlib" },
-    { name = "networkx" },
-    { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
-    { name = "numpy", version = "2.5.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
-    { name = "osmnx" },
-    { name = "pandas" },
-    { name = "plotly" },
-    { name = "pydantic" },
-    { name = "pydantic-settings" },
-    { name = "pymoo" },
-    { name = "pyproj" },
-    { name = "python-dotenv" },
-    { name = "rasterio", version = "1.4.4", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
-    { name = "rasterio", version = "1.5.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
-    { name = "rioxarray", version = "0.19.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
-    { name = "rioxarray", version = "0.22.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
-    { name = "scikit-learn" },
-    { name = "scipy", version = "1.17.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
-    { name = "scipy", version = "1.18.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
-    { name = "shapely" },
-    { name = "statsmodels" },
-    { name = "streamlit" },
-    { name = "streamlit-folium" },
-    { name = "tqdm" },
-    { name = "uvicorn", extra = ["standard"] },
-    { name = "xarray" },
-    { name = "zarr", version = "3.1.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
-    { name = "zarr", version = "3.2.1", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
-]
-
-[package.optional-dependencies]
-dev = [
-    { name = "pytest" },
-    { name = "pytest-cov" },
-    { name = "ruff" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "earthengine-api", specifier = ">=1.0" },
-    { name = "esda", specifier = ">=2.4" },
-    { name = "fastapi", specifier = ">=0.110" },
-    { name = "folium", specifier = ">=0.16" },
-    { name = "geopandas", specifier = ">=0.14" },
-    { name = "httpx", specifier = ">=0.27" },
-    { name = "libpysal", specifier = ">=4.8" },
-    { name = "mapclassify", specifier = ">=2.6" },
-    { name = "matplotlib", specifier = ">=3.8" },
-    { name = "networkx", specifier = ">=3.2" },
-    { name = "numpy", specifier = ">=1.26,<3" },
-    { name = "osmnx", specifier = ">=1.9" },
-    { name = "pandas", specifier = ">=2.1" },
-    { name = "plotly", specifier = ">=6.8.0" },
-    { name = "pydantic", specifier = ">=2.6" },
-    { name = "pydantic-settings", specifier = ">=2.2" },
-    { name = "pymoo", specifier = ">=0.6" },
-    { name = "pyproj", specifier = ">=3.6" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0" },
-    { name = "pytest-cov", marker = "extra == 'dev'", specifier = ">=4.1" },
-    { name = "python-dotenv", specifier = ">=1.0" },
-    { name = "rasterio", specifier = ">=1.3" },
-    { name = "rioxarray", specifier = ">=0.15" },
-    { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.4" },
-    { name = "scikit-learn", specifier = ">=1.4" },
-    { name = "scipy", specifier = ">=1.11" },
-    { name = "shapely", specifier = ">=2.0" },
-    { name = "statsmodels", specifier = ">=0.14.6" },
-    { name = "streamlit", specifier = ">=1.33" },
-    { name = "streamlit-folium", specifier = ">=0.18" },
-    { name = "tqdm", specifier = ">=4.66" },
-    { name = "uvicorn", extras = ["standard"], specifier = ">=0.29" },
-    { name = "xarray", specifier = ">=2024.1" },
-    { name = "zarr", specifier = ">=2.18" },
-]
-provides-extras = ["dev"]
 
 [[package]]
 name = "uritemplate"
