@@ -36,7 +36,6 @@ def main() -> int:
     slope = summary["slope"].fillna(0).values
     wind = summary["wind_speed (m/s)"].fillna(0).values
     weight = summary["weight_range (kg)"].fillna("70-80").values
-    weather = summary["weather"].fillna("Dry").values
     n = len(wh_km_real)
 
     rider_kg = np.array([parse_weight(str(w)) for w in weight])
@@ -112,7 +111,10 @@ def main() -> int:
             "mc_mean": round(np.mean(mc_arr), 1),
             "mc_median": round(np.median(mc_arr), 1),
             "mc_wh_per_km_at_15kmh": round(
-                compute_edge_energy_mc(1000.0, 15.0, 25.0, 0.0, n_simulations=30, seed=42).wh_per_km, 1
+                compute_edge_energy_mc(
+                    1000.0, 15.0, 25.0, 0.0, n_simulations=30, seed=42
+                ).wh_per_km,
+                1,
             ),
         },
         "validation": {

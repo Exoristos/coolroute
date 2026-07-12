@@ -6,13 +6,11 @@ import pickle
 import time
 import warnings
 
-warnings.filterwarnings("ignore")
-
-import networkx as nx
-import numpy as np
 import osmnx as ox
 
-from uhi_battery.routing.pareto import solve_pareto, check_objective_correlation
+from uhi_battery.routing.pareto import check_objective_correlation, solve_pareto
+
+warnings.filterwarnings("ignore")
 
 OD_PAIRS = [
     {"label": "A: Moda->Kozyatagi", "o": (29.02, 40.97), "d": (29.10, 40.91)},
@@ -30,7 +28,11 @@ def main() -> int:
 
     with open("data/processed/graph_mc.pkl", "rb") as f:
         G = pickle.load(f)
-    print(f"Graph: {G.number_of_nodes()} nodes, {G.number_of_edges()} edges ({time.perf_counter()-t0:.1f}s)")
+    elapsed = time.perf_counter() - t0
+    print(
+        f"Graph: {G.number_of_nodes()} nodes, {G.number_of_edges()} edges "
+        f"({elapsed:.1f}s)"
+    )
 
     print("\nCorrelation pre-check...")
     corr = check_objective_correlation(G, n_samples=30, seed=42)
@@ -57,17 +59,28 @@ def main() -> int:
                 non_degenerate += 1
                 e_vals = [f["energy_wh"] for f in frontier]
                 dh_vals = [f["obj2_value"] for f in frontier]
-                print(f"    Energy: {min(e_vals):.1f}-{max(e_vals):.1f} Wh (delta={max(e_vals)-min(e_vals):.1f})")
-                print(f"    Degree-hrs: {min(dh_vals):.2f}-{max(dh_vals):.2f} (delta={max(dh_vals)-min(dh_vals):.2f})")
+                energy_delta = max(e_vals) - min(e_vals)
+                print(
+                    f"    Energy: {min(e_vals):.1f}-{max(e_vals):.1f} Wh "
+                    f"(delta={energy_delta:.1f})"
+                )
+                degree_delta = max(dh_vals) - min(dh_vals)
+                print(
+                    f"    Degree-hrs: {min(dh_vals):.2f}-{max(dh_vals):.2f} "
+                    f"(delta={degree_delta:.2f})"
+                )
 
                 min_e = min(frontier, key=lambda x: x["energy_wh"])
                 min_dh = min(frontier, key=lambda x: x["obj2_value"])
                 if min_e["route"] != min_dh["route"]:
-                    print(f"    Non-degenerate! Min-E: {len(min_e['route'])} nodes, Min-DH: {len(min_dh['route'])} nodes")
+                    print(
+                        f"    Non-degenerate! Min-E: {len(min_e['route'])} nodes, "
+                        f"Min-DH: {len(min_dh['route'])} nodes"
+                    )
                 else:
-                    print(f"    Same route (degenerate)")
+                    print("    Same route (degenerate)")
             else:
-                print(f"    Degenerate (single route)")
+                print("    Degenerate (single route)")
 
             all_results.append({
                 "label": label,
@@ -80,7 +93,7 @@ def main() -> int:
             print(f"    [ERROR] {exc}")
             all_results.append({"label": label, "error": str(exc)})
 
-    print(f"\n=== Summary ===")
+    print("\n=== Summary ===")
     print(f"Non-degenerate: {non_degenerate}/{len(OD_PAIRS)}")
     print(f"Total time: {time.perf_counter()-t0:.1f}s")
 

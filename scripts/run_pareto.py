@@ -123,7 +123,9 @@ def main() -> int:
         try:
             lst_ds = xr.open_dataset(str(LST_EXPANDED))
             print(f"  Loaded expanded LST: {lst_ds.sizes}")
-            print(f"  LST range: {float(lst_ds.lst_daily.min()):.1f} - {float(lst_ds.lst_daily.max()):.1f} C")
+            lst_min = float(lst_ds.lst_daily.min())
+            lst_max = float(lst_ds.lst_daily.max())
+            print(f"  LST range: {lst_min:.1f} - {lst_max:.1f} C")
             print(f"  Mean LST: {float(lst_ds.lst_daily.mean()):.1f} C")
         except Exception as exc:
             print(f"  [WARN] Expanded LST load failed: {exc}")
@@ -138,7 +140,7 @@ def main() -> int:
         except Exception as exc:
             print(f"  [WARN] LST load failed: {exc}")
     else:
-        print(f"  [WARN] No LST file found")
+        print("  [WARN] No LST file found")
 
     # ── 4. Edge attributes (MC drive cycle) ─────────────────────────────
     print("\n── 4. Edge attributes (MC drive cycle, n_sim=50) ──")

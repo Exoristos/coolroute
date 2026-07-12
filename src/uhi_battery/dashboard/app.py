@@ -29,9 +29,6 @@ import streamlit as st
 from streamlit_folium import st_folium
 
 from uhi_battery.config import settings
-from uhi_battery.models.energy import compute_trip_energy
-from uhi_battery.models.soh import predict_soh
-
 from uhi_battery.dashboard.data_loader import (
     daily_temperature_curve,
     load_hotspots,
@@ -54,6 +51,8 @@ from uhi_battery.dashboard.theme import (
     plotly_layout,
     temp_hex_at,
 )
+from uhi_battery.models.energy import compute_trip_energy
+from uhi_battery.models.soh import predict_soh
 
 # ── Page config ──────────────────────────────────────────────────────────────
 st.set_page_config(

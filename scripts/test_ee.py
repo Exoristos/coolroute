@@ -35,7 +35,8 @@ def main() -> None:
 
     img = ee.Image(col.first())
     date = ee.Date(img.get("system:time_start")).format("YYYY-MM-dd").getInfo()
-    mean_raw = float(img.reduceRegion(ee.Reducer.mean(), aoi, scale=1000).get("LST_Day_1km").getInfo())
+    reduced = img.reduceRegion(ee.Reducer.mean(), aoi, scale=1000)
+    mean_raw = float(reduced.get("LST_Day_1km").getInfo())
     mean_c = mean_raw * 0.02 - 273.15
     print(f"First scene date: {date}")
     print(f"Mean LST_Day_1km = {mean_raw:.0f} raw  ->  {mean_c:.1f} C")

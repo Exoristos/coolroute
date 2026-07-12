@@ -105,7 +105,7 @@ def main() -> int:
             n_images = 0
 
         if n_images == 0:
-            print(f"    No images found, trying next collection")
+            print("    No images found, trying next collection")
             continue
 
         # Get the best (least cloudy) image
@@ -162,7 +162,9 @@ def main() -> int:
             ds.to_netcdf(str(LST_EXPANDED))
             print(f"  LST netCDF saved: {LST_EXPANDED}")
             print(f"  Shape: {dict(ds.sizes)}")
-            print(f"  LST range: {float(ds.lst_daily.min()):.1f} - {float(ds.lst_daily.max()):.1f} C")
+            lst_min = float(ds.lst_daily.min())
+            lst_max = float(ds.lst_daily.max())
+            print(f"  LST range: {lst_min:.1f} - {lst_max:.1f} C")
             print(f"  Mean LST: {float(ds.lst_daily.mean()):.1f} C")
             break
 
