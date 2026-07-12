@@ -14,12 +14,11 @@ import datetime
 import time
 from pathlib import Path
 
+import ee
 import numpy as np
 import requests
 import rioxarray  # noqa: F401
 import xarray as xr
-
-import ee
 
 from uhi_battery.config import settings
 from uhi_battery.data.fusion import clear_sky_rmse, fuse_to_hourly
@@ -106,7 +105,7 @@ def pull_landsat(region: ee.Geometry, start: str, end: str) -> xr.DataArray:
         if ts is None:
             print(f"    [skip] scene {i}: no timestamp")
             continue
-        d = datetime.datetime.fromtimestamp(ts / 1000, tz=datetime.timezone.utc).strftime("%Y%m%d")
+        d = datetime.datetime.fromtimestamp(ts / 1000, tz=datetime.UTC).strftime("%Y%m%d")
         img = ee.Image(img_list.get(i)).select("LST_C")
         p = _dl(img, f"landsat_{d}.tif", LANDSAT_DIR, 30, region)
         if p:
@@ -134,7 +133,7 @@ def pull_modis(region: ee.Geometry, start: str, end: str) -> tuple[xr.DataArray,
         ts = timestamps[i]
         if ts is None:
             continue
-        d = datetime.datetime.fromtimestamp(ts / 1000, tz=datetime.timezone.utc).strftime("%Y%m%d")
+        d = datetime.datetime.fromtimestamp(ts / 1000, tz=datetime.UTC).strftime("%Y%m%d")
         img = ee.Image(img_list.get(i))
         # LST_Day/Night_1km: DN × 0.02 = K → °C
         day = img.select("LST_Day_1km").multiply(0.02).subtract(273.15).rename("LST_C")
