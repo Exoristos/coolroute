@@ -44,3 +44,11 @@ Thumbs.db
 .coverage
 htmlcov/
 .ipynb_checkpoints/
+
+# lokal notlar ve ai arac klasorleri repoya girmesin
+interview/
+.cursor/
+.claude/
+.cursorrules
+CLAUDE.md
+.mcp.json
